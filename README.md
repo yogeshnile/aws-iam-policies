@@ -2,6 +2,7 @@
 
 ## Table of Contents
  - [Grant Access To Only One S3 Bucket](#grant-access-to-only-one-s3-bucket)
+ - [Allows full EC2 access within a specific Region](#allows-full-ec2-access-within-a-specific-region)
 
 
 # Grant Access To Only One S3 Bucket
@@ -29,3 +30,23 @@
     ]
 }
  ```
+ 
+# Allows full EC2 access within a specific Region
+ - allows full EC2 access within a specific Region
+ ```json
+ {
+     "Version": "2012-10-17",
+     "Statement": [
+         {
+             "Action": "ec2:*",
+             "Resource": "*",
+             "Effect": "Allow",
+             "Condition": {
+                 "StringEquals": {
+                     "ec2:Region": "REGION-CODE"
+                 }
+             }
+         }
+     ]
+ }
+```
