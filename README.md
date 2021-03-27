@@ -4,6 +4,7 @@
  - [Grant Access To Only One S3 Bucket](#grant-access-to-only-one-s3-bucket)
  - [Allows full EC2 access within a specific Region](#allows-full-ec2-access-within-a-specific-region)
  - [Describe all instances, and stop, start, and terminate only particular instances](#describe-all-instances-and-stop-start-and-terminate-only-particular-instances)
+ - [Granting permissions for using AWS Resource Groups and Tag Editor](#granting-permissions-for-using-aws-resource-groups-and-tag-editor)
 
 
 # Grant Access To Only One S3 Bucket
@@ -78,3 +79,27 @@
   ]
 }
  ```
+
+# Granting permissions for using AWS Resource Groups and Tag Editor
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "resource-groups:*",
+        "cloudformation:DescribeStacks",
+        "cloudformation:ListStackResources",
+        "tag:GetResources",
+        "tag:TagResources",
+        "tag:UntagResources",
+        "tag:getTagKeys",
+        "tag:getTagValues",
+        "resource-explorer:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
